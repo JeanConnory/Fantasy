@@ -4,9 +4,11 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace fantasy_backend.Controllers
 {
+
     public class ParticipantesController : ApiController
     {
         private FantasyContext db = new FantasyContext();
@@ -30,7 +32,7 @@ namespace fantasy_backend.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult PostParticipante(Participante participante)
+        public IHttpActionResult PostParticipante([FromBody] Participante participante)
         {
             if (!ModelState.IsValid)
             {
